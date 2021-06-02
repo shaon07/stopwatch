@@ -36,7 +36,7 @@
     background-color: crimson;
     color: white;
     border: none;
-    padding: 3% 5%;
+    padding: 3% 50px;
     font-size: 15px;
     transition: .5s;
 }
@@ -57,4 +57,9 @@ p span{
 }
 p:nth-child(2){
     margin-top: 1%;
+}
+
+#start
+{
+	padding : 3% 5%;
 }
