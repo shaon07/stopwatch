@@ -30,8 +30,6 @@
 {
     padding: 2%;
     margin: 5%;
-    display : flex;
-    flex-flow : row wrap;
 }
 .btnsec button
 {
@@ -39,7 +37,7 @@
     color: white;
     border: none;
     padding: 3% 5%;
-
+    display : block;
     font-size: 15px;
     transition: .5s;
 }
