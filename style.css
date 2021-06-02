@@ -36,7 +36,8 @@
     background-color: crimson;
     color: white;
     border: none;
-    padding: 3% 50px;
+    padding: 3% 5%;
+
     font-size: 15px;
     transition: .5s;
 }
