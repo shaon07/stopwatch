@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer With JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h2>Hello <span id="user"></span></h2>
+        <h2>This is your stopwatch </h2>
+        <div>
+            <p>Lets Start it</p>
+            <p><span id="hour">00</span><span>:</span><span id="min">00</span><span>:</span><span id="second">00</span></p>
+        </div>
+        <div class="btnsec">
+            <button id="start" onclick="setCount();">start</button>
+            <button id="stop" >pause</button>
+            <button id="resume">resume</button>
+            <button id="reset">reset</button>
+        </div>
+        <h5>Copyright : Mohammad Shaon</h5>
+        <h5>A front end web developer</h5>
+        </div>
+        
+    </div>
+
+<script>
+    let startBtn = document.querySelector("#start");
+    let stopBtn = document.querySelector("#stop");
+    let resetBtn = document.querySelector("#reset");
+    let resumeBtn = document.querySelector("#resume");
+    let hour = document.querySelector("#hour");
+    let min = document.querySelector("#min");
+    let seconds = document.querySelector("#second");
+    let users = document.querySelector("#user");
+
+    let userInput = prompt("Please Enter Your Name");
+        if(userInput!=null){
+            users.innerHTML=userInput;
+        }else{
+            users.innerHTML="Mr.Allien";
+        }
+    stopBtn.disabled=true;
+    
+
+    function startCount (){
+        let countSecond = second.innerHTML;
+        countSecond++;
+        if(countSecond<9){
+            seconds.innerHTML="0" + countSecond;
+        }else{
+            seconds.innerHTML=countSecond;
+        }
+        if(countSecond==100){
+            min.innerHTML++;
+            seconds.innerHTML="00";
+            if(min.innerHTML==60){
+                hour.innerHTML++;
+                min.innerHTML="00"
+            }
+        }
+
+        startBtn.setAttribute("style","background-color: darkslateblue;")
+        startBtn.disabled=true;
+        resetBtn.disabled=true;
+
+       
+    
+    }
+    // let pause = stopBtn.innerText;   
+
+    function setCount (){
+
+        stopBtn.disabled=false;
+        resetBtn.disabled=false;
+
+        function ssd(){
+            return setInterval(startCount,10);
+        }
+        
+        var a = ssd();
+        // second.innerHTML="00";
+        stopBtn.onclick=b;
+        function b(){
+            clearInterval(a);
+            resumeBtn.setAttribute("style","display:inline-block");
+            stopBtn.setAttribute("style","display:none");
+            resetBtn.disabled=false;
+        }
+
+        resumeBtn.onclick=d;
+
+        function d(){
+            stopBtn.setAttribute("style","display:inline-block");
+            resumeBtn.setAttribute("style","display:none");
+            // resetBtn.disabled=false;
+            var a = ssd();
+            function s(){
+                clearInterval(a);
+                resumeBtn.setAttribute("style","display:inline-block");
+                stopBtn.setAttribute("style","display:none");
+                resetBtn.disabled=false;
+            }
+            
+            console.log(a)
+           
+            stopBtn.onclick=s;
+           
+        }
+
+        resetBtn.onclick=c;
+        function c(){
+            second.innerHTML="00";
+            min.innerHTML="00";
+            hour.innerHTML="00";
+            startBtn.disabled=false;
+            stopBtn.disabled=true;
+            resetBtn.disabled=false;
+            // resumeBtn.disabled=true;
+            stopBtn.setAttribute("style","display:inline-block");
+            resumeBtn.setAttribute("style","display:none");
+            startBtn.setAttribute("style","background-color: crimson;")
+            
+            
+        
+        }
+
+        
+    }
+    
+     
+     
+    
+     
+    
+</script>
+</body>
+</html>
